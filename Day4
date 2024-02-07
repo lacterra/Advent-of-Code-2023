@@ -1,0 +1,84 @@
+###############################
+# Author: Timon Paech
+# Datum: 2024-01-07
+#
+# Titel: Advent of Code - Day 4
+# Aufgabe:  Ermittlung der Punktzahl aus Anzahl der Treffer 
+#          
+# 
+#
+#
+# Lösung: - Datei einlesen 
+#         - Datei in 2 sets zerteilen
+#         - Lehrzeichen entfernen
+#         - Trefferanzahl aus Duchschnitt (intersection) beider Sets ermitteln
+#         - Punktzahl aus Trefferanzahl ermitteln mit hilfe von zweier Potenz
+#         - alle Punktzahlen summieren
+###############################
+
+def Program():
+  Summe = 0
+  # Datei einlesen
+  Input = open("Day4Input.txt", "r")
+
+    # Ziele in Liste speichern
+  Liste = Input.readlines()
+
+
+  # Länge der Liste ermitteln
+  AnzahlZeilen = len(Liste)
+
+  #alle Zeilen durchgehen
+  for i in range(AnzahlZeilen):
+
+    Cardnummer = i + 1
+    ZeileAlsString = Liste[i]
+
+
+    #Umbrüchen entfernen
+    Zeilen = ZeileAlsString.replace("\n", "")
+
+    #Zerschneiden in zwei Teile
+    Zerschnitten = Zeilen.split(":")[1].split("|")
+  
+    #Teile in Sets umwandeln
+    Gewinnzahlen = set(Zerschnitten[0].split(" "))
+    Gezogenenzahlen= set(Zerschnitten[1].split(" "))
+  
+    #Lehrzeichen entfernen
+    Gewinnzahlen.remove("")
+    Gezogenenzahlen.remove("")
+  
+    #Gemeinsamer Treffer ermitteln
+    Treffer = Gewinnzahlen.intersection(Gezogenenzahlen)
+  
+  
+    #Länge des Sets ermitteln 
+    AnzahlTreffer = len(Treffer)
+  
+    #Punktzahl berechen mit hilfe von zweier Potenz
+  
+    Punktzahl = 2**(AnzahlTreffer-1)
+    if AnzahlTreffer < 1:
+      Punktzahl = 0
+
+    #Punktzahl zusammen adieren
+    Summe = Summe + Punktzahl
+  print(Summe)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
