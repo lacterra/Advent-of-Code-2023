@@ -1,0 +1,65 @@
+###############################
+# Author: Timon Paech
+# Datum: 2024-01-06
+#
+# Titel: Advent of Code - Day 2
+# Aufgabe: Ermittlung von Zahl und Farbwerten aus Textquelle mit Prüfung auf Überschreitung von 
+#          Zahlenwerten pro Farbe
+#  
+#
+#
+# Lösung: - Daten zeilenweise einlesen
+#         - Farb und Zahlenwerte ermitteln 
+#         - Daten in Dictionary speichern
+#         - Prüfung der Daten auf Werteüberschreitung
+#  
+###############################
+
+import re
+
+def Program():
+
+  #Dictionary für mögliche anzahl pro farbe
+  Mögliche = {"red":12, "green":13, "blue":14}
+  
+  #Datei einlesen
+  Input = open("Day2Input.txt", "r")
+
+  #Ziele in Liste speichern
+  Liste = Input.readlines()
+
+  #Länge der Liste ermitteln
+  AnzahlZeilen = len(Liste)
+  
+  Summe=0
+  GameNumber = 0
+
+  #alle Zeilen durchgehen
+  for i in range(AnzahlZeilen):
+    Überschritten=0
+    GameNumber = i+1
+    ZeileAlsString = Liste[i]
+
+    #Umbrüchen entfernen
+    Zeilen = ZeileAlsString.replace("\n", "")
+
+    #Regex ermittelt zweier Wert (Dictionary) aus Zahlen und Farbwert
+    Game = re.findall(r"(\d+) (red|blue|green)", Zeilen)
+
+    #Dictionary aus farbe und zahl durchlaufen
+    for zahl, farbe in Game:  
+
+      #Prüfung ob Zahlenwert möglichen Zahlenwert überschreitet  
+      if int(zahl) > Mögliche[farbe]:
+        Überschritten=1
+        continue   
+        
+    #Sumierung der Spiele wo Zahlenwert der Farben nicht überschritten wurde
+    if Überschritten == 0:
+      print(Zeilen)
+      Summe = Summe + GameNumber
+  print(Summe)
+
+
+
+
