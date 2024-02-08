@@ -1,0 +1,34 @@
+#Finde Zahlen die in Summe 2020 ergeben
+def find_numbers(nums):
+  
+  for i in range(len(nums)):
+    
+    for j in range(i + 1, len(nums)):
+      
+      if int(nums[i]) + int(nums[j]) == 2020:
+        print(nums[i], nums[j])
+        Ergebniss = int(nums[i]) * int(nums[j])
+        print(Ergebniss)
+            
+def Program():
+
+
+  #Datei einlesen
+  Input = open("Day5Input.txt", "r")
+
+  #Ziele in Liste speichern
+  Liste = Input.readlines()
+
+  #Länge der Liste ermitteln
+  AnzahlZeilen = len(Liste)
+
+  find_numbers(Liste)   
+    
+    
+    
+    
+
+
+    
+
+Program()
