@@ -1,3 +1,10 @@
+###############################
+# Author: Timon Paech
+# Datum: 2024-01-05
+#
+# Ausführung der Python Programme des Repositories https://replit.com/@timonpaech/Python 
+###############################
+
 import re
 from typing import List, Set
 
