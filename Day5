@@ -1,15 +1,32 @@
-#Finde Zahlen die in Summe 2020 ergeben
+###############################
+# Author: Timon Paech
+# Datum: 2024-02-08
+#
+# Titel: Advent of Code - Day 5
+# Aufgabe:  Finde Zahlen die in Summe 2020 ergeben 
+#          
+# 
+#
+#
+# Lösung: - Datei Zeilenweise einlesen
+#         - zwei Schleifen die versetzt durchlaufen werden
+#         - Finde aufeinanderfolgende Zahlen die in Summe 2020 ergeben
+#         - multipliziere diese Zahlen
+###############################
+
+
+#Finde aufeinanderfolgende Zahlen die in Summe 2020 ergeben
 def find_numbers(nums):
-  
+  #durchlaufe alle Zahlen
   for i in range(len(nums)):
-    
+    #durchlaufe versetzt durch die anderen Zahlen      
     for j in range(i + 1, len(nums)):
-      
+      #wenn Summe beider Zahlen 2020 ergibt -> multipliziere diese Zahlen
       if int(nums[i]) + int(nums[j]) == 2020:
         print(nums[i], nums[j])
         Ergebniss = int(nums[i]) * int(nums[j])
         print(Ergebniss)
-            
+
 def Program():
 
 
@@ -23,12 +40,3 @@ def Program():
   AnzahlZeilen = len(Liste)
 
   find_numbers(Liste)   
-    
-    
-    
-    
-
-
-    
-
-Program()
